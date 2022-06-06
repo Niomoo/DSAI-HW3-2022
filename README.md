@@ -1,10 +1,40 @@
-# DSAI-HW3-2021
-
+# DSAI-HW3-2022
+##  Execution
+```
+$ pipenv install
+$ pipenv run python main.py
+```
+## Introduction
+### input data 
+- consumption.csv: 過去七天歷史用電資料
+- generation.csv: 過去七天產電資料
+- bidresult.csv: 過去七天自己的投標資料
+### output data 
+- output.csv: 未來一天投標資訊### Workflow
+### Workflow
+![](https://i.imgur.com/Ng0gG6U.png)
+1. 平台會指定過去七天資料做為參數放進 Agents 程式中
+2. Agents 產出未來一天投標資訊（以小時為單位），並可透過參數指定輸出路徑
+3. 平台取得所有 Agents 的投標資訊，並進行媒合
+4. 平台公告結果並將競標結果寫到各個 Agents 的目錄
+### Matching Mechanism
+![](https://i.imgur.com/2PWfZ2K.png)
+![](https://i.imgur.com/FUpUqch.png)
+### 電費計算方式
+![](https://i.imgur.com/ZrcQF7D.png)
+## Strategy
+### Model
+- Multilayer Perceptron (MLP) Model
+- 分為預測 consumption 及預測 generation 兩個 model
+### Bidding
+- 買入價設 2.47（低於台電定價 2.52，可買進）
+- 賣出價設 2.57（高於台電定價 2.52，可賣出）
+## 補充
+- 在 ftp 上無法上傳檔案，故在此進行記錄
+## Others
 ### Source
-
-  - [Slide](https://docs.google.com/presentation/d/1JW27_5HXYZhqWmgvDhtXBaFTOfksO_dS/edit#slide=id.p1)
-  - [Dashboard](https://docs.google.com/spreadsheets/d/1cjhQewnXT2IbmYkGXRYNC5PlGRafcbVprCjgSFyDAaU/edit?pli=1#gid=0)
-
+  - [Slide](https://docs.google.com/presentation/d/1ZwXe4xMflCxiDQ7RK6z_LH88r0Dp38sQ/edit#slide=id.gd2c4f7e262_1_24)
+  - [Dashboard](https://docs.google.com/spreadsheets/d/1hqoxG48A159buQ-GuoU7Fo-QrGKYmE1DFgPckJR0dFI/edit#gid=0)
 ### Rules
 
 - SFTP
